@@ -1,7 +1,6 @@
 import os
 from dotenv import load_dotenv
 import openai
-from openai.error import RateLimitError
 
 # Load and validate API key
 load_dotenv()
@@ -41,7 +40,7 @@ Provide:
             temperature=temperature,
         )
         return response.choices[0].message.content.strip()
-    except RateLimitError:
+    except openai.RateLimitError:
         return (
             "⚠️ Unable to generate summary: insufficient OpenAI quota. "
             "Please check your billing settings at "
