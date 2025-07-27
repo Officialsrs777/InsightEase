@@ -27,3 +27,12 @@ InsightEase is an AI-powered meeting intelligence tool that effortlessly summari
 - **Name:** Anand  
 - **Role:** Head of Marketing  
 - **Pain Points:** Frequently misses meetings; needs quick summaries and key takeaways.
+
+## AI Integration Demo
+
+Follow these steps to run the meeting-summary demo:
+
+1. **Clone the repo** (if you haven’t already)  
+   ```bash
+   git clone https://github.com/your-username/InsightEase.git
+   cd InsightEase
