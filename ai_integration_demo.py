@@ -31,3 +31,21 @@ Provide:
         temperature=temperature,
     )
     return response.choices[0].message["content"].strip()
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Summarize a meeting transcript via OpenAI"
+    )
+    parser.add_argument("transcript_file", help="Path to transcript text file")
+    args = parser.parse_args()
+
+    # Read the transcript
+    with open(args.transcript_file, "r", encoding="utf-8") as f:
+        transcript_text = f.read()
+
+    # Generate and print the summary
+    result = summarize_meeting(transcript_text)
+    print("\n===== INSIGHTEASE SUMMARY =====\n")
+    print(result)
+    print("\n==============================\n")
