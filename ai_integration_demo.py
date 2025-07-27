@@ -24,13 +24,13 @@ Provide:
 1) A concise bullet-point summary.
 2) A bullet-point list of action items.
 """
-    response = openai.ChatCompletion.create(
+    response = openai.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
         max_tokens=max_tokens,
         temperature=temperature,
     )
-    return response.choices[0].message["content"].strip()
+    return response.choices[0].message.content.strip()
 if __name__ == "__main__":
     import argparse
 
