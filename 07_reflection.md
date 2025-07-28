@@ -1,7 +1,7 @@
 # Reflection
 
 1. **What I Learned**  
-   - Gained hands‑on experience defining problem statements, user stories, and roadmaps—just like an APM.
+   - Gained hands‑on experience defining problem statements, user stories, and roadmaps—just like a PM.
    - Deepened my understanding of integrating AI (OpenAI API) into product workflows.
    - Practiced clear documentation and version control for collaborative projects.
 

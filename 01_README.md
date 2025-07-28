@@ -34,5 +34,5 @@ Follow these steps to run the meeting-summary demo:
 
 1. **Clone the repo** (if you haven’t already)  
    ```bash
-   git clone https://github.com/your-username/InsightEase.git
+   git clone https://github.com/Officialsrs777/InsightEase.git
    cd InsightEase
