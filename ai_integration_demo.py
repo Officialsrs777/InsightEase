@@ -2,7 +2,6 @@ import os
 from dotenv import load_dotenv
 import openai
 
-# ─── Load environment and configure Perplexity Sonar API ───
 load_dotenv()
 SONAR_KEY = os.getenv("SONAR_API_KEY")
 if not SONAR_KEY:
