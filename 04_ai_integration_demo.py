@@ -2,14 +2,22 @@ import os
 from dotenv import load_dotenv
 import openai
 
-# Load and validate API key
++# 0. Load environment and choose Sonar API by default
 load_dotenv()
-API_KEY = os.getenv("OPENAI_API_KEY")
+API_KEY = os.getenv("SONAR_API_KEY")
 if not API_KEY:
     raise RuntimeError(
-        "Missing OPENAI_API_KEY in environment. Check your .env file."
+        "Missing API_KEY in environment. Check your .env file."
     )
-openai.api_key = API_KEY
+-openai.api_key = API_KEY
++SONAR_KEY = os.getenv("SONAR_API_KEY")
++if not SONAR_KEY:
++    raise RuntimeError(
++        "Missing SONAR_API_KEY in environment. Check your .env file."
++    )
++openai.api_key = SONAR_KEY
++# Point the OpenAI client at Perplexity’s Sonar endpoint
++openai.api_base = "https://api.perplexity.ai"
 
 def summarize_meeting(
     transcript: str,
