@@ -2,26 +2,17 @@ import os
 from dotenv import load_dotenv
 import openai
 
-+# 0. Load environment and choose Sonar API by default
+# ─── Load environment and configure Perplexity Sonar API ───
 load_dotenv()
-API_KEY = os.getenv("SONAR_API_KEY")
-if not API_KEY:
-    raise RuntimeError(
-        "Missing API_KEY in environment. Check your .env file."
-    )
--openai.api_key = API_KEY
-+SONAR_KEY = os.getenv("SONAR_API_KEY")
-+if not SONAR_KEY:
-+    raise RuntimeError(
-+        "Missing SONAR_API_KEY in environment. Check your .env file."
-+    )
-+openai.api_key = SONAR_KEY
-+# Point the OpenAI client at Perplexity’s Sonar endpoint
-+openai.api_base = "https://api.perplexity.ai"
+SONAR_KEY = os.getenv("SONAR_API_KEY")
+if not SONAR_KEY:
+    raise RuntimeError("Missing SONAR_API_KEY in environment. Check your .env file.")
+openai.api_key = SONAR_KEY
+openai.api_base = "https://api.perplexity.ai"
 
 def summarize_meeting(
     transcript: str,
-    model: str = "gpt-3.5-turbo",
+    model: str = "sonar-pro",
     max_tokens: int = 500,
     temperature: float = 0.2
 ) -> str:
@@ -51,15 +42,14 @@ Provide:
     except openai.RateLimitError:
         return (
             "⚠️ Unable to generate summary: insufficient OpenAI quota. "
-            "Please check your billing settings at "
-            "https://platform.openai.com/account/billing."
+            "Please check your billing settings at https://platform.openai.com/account/billing."
         )
 
 if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(
-        description="Summarize a meeting transcript via OpenAI"
+        description="Summarize a meeting transcript via Perplexity Sonar API"
     )
     parser.add_argument(
         "transcript_file",
